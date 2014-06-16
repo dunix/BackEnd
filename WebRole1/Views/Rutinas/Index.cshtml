@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebRole1.Models.RUTINA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.STR_NOMBRE_RUTINA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INT_DURACION_TOTAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLIENTE.STR_CEDULA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.STR_NOMBRE_RUTINA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INT_DURACION_TOTAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLIENTE.STR_CEDULA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.INT_ID_RUTINA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.INT_ID_RUTINA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.INT_ID_RUTINA })
+        </td>
+    </tr>
+}
+
+</table>

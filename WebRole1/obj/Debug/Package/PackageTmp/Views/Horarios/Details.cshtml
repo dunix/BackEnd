@@ -1,0 +1,59 @@
+﻿@model WebRole1.Models.Horario
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Horario</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HORA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HORA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACTIVIDAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACTIVIDAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INTIDADMINISTRADOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INTIDADMINISTRADOR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INTHORA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INTHORA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_HORARIO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

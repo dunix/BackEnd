@@ -1,0 +1,43 @@
+﻿@model WebRole1.Models.RUTINA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RUTINA</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STR_NOMBRE_RUTINA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STR_NOMBRE_RUTINA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INT_DURACION_TOTAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INT_DURACION_TOTAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLIENTE.STR_CEDULA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLIENTE.STR_CEDULA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.INT_ID_RUTINA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

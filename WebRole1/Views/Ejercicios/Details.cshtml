@@ -1,0 +1,67 @@
+﻿@model WebRole1.Models.EJERCICIO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EJERCICIO</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STR_NOMBRE_EJERCICIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STR_NOMBRE_EJERCICIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INT_DURACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INT_DURACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INT_REPETICIONES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INT_REPETICIONES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INT_PESO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INT_PESO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INT_DESCANSO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INT_DESCANSO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INT_SERIES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INT_SERIES)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.INT_ID_EJERCICIO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

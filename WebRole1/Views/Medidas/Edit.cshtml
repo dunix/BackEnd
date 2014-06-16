@@ -1,0 +1,147 @@
+﻿@model WebRole1.Models.MEDIDA
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>MEDIDA</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.INT_ID_MEDIDA)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DT_FECHA_MEDIDA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DT_FECHA_MEDIDA)
+                @Html.ValidationMessageFor(model => model.DT_FECHA_MEDIDA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_ALTURA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_ALTURA)
+                @Html.ValidationMessageFor(model => model.DB_ALTURA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_IMC, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_IMC)
+                @Html.ValidationMessageFor(model => model.DB_IMC)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_BICDER, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_BICDER)
+                @Html.ValidationMessageFor(model => model.DB_BICDER)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_BICIZQ, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_BICIZQ)
+                @Html.ValidationMessageFor(model => model.DB_BICIZQ)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_CINTURA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_CINTURA)
+                @Html.ValidationMessageFor(model => model.DB_CINTURA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.INT_EDAD, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.INT_EDAD)
+                @Html.ValidationMessageFor(model => model.INT_EDAD)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_ESPALDA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_ESPALDA)
+                @Html.ValidationMessageFor(model => model.DB_ESPALDA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_MUSLO_DER, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_MUSLO_DER)
+                @Html.ValidationMessageFor(model => model.DB_MUSLO_DER)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_MUSLO_IZQ, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_MUSLO_IZQ)
+                @Html.ValidationMessageFor(model => model.DB_MUSLO_IZQ)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_PECHO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_PECHO)
+                @Html.ValidationMessageFor(model => model.DB_PECHO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_PESO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_PESO)
+                @Html.ValidationMessageFor(model => model.DB_PESO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_PORCENTAJE_GRASA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_PORCENTAJE_GRASA)
+                @Html.ValidationMessageFor(model => model.DB_PORCENTAJE_GRASA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DB_CADERA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DB_CADERA)
+                @Html.ValidationMessageFor(model => model.DB_CADERA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

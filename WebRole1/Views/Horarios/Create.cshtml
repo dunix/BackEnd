@@ -1,0 +1,82 @@
+﻿@model WebRole1.Models.HORARIO_GIMNASIO
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>HORARIO_GIMNASIO</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ID_HORARIO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ID_HORARIO)
+                @Html.ValidationMessageFor(model => model.ID_HORARIO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.INT_ID_ADMINISTRADOR, "INT_ID_ADMINISTRADOR", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("INT_ID_ADMINISTRADOR", String.Empty)
+                @Html.ValidationMessageFor(model => model.INT_ID_ADMINISTRADOR)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DIA)
+                @Html.ValidationMessageFor(model => model.DIA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ACTIVIDAD, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ACTIVIDAD)
+                @Html.ValidationMessageFor(model => model.ACTIVIDAD)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FT_HORA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FT_HORA)
+                @Html.ValidationMessageFor(model => model.FT_HORA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HORA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HORA)
+                @Html.ValidationMessageFor(model => model.HORA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

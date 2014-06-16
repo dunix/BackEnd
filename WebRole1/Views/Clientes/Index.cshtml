@@ -1,0 +1,68 @@
+﻿@model WebRole1.Models.PERSONA
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Panel de Tareas para el Cliente</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Ver mi información</h2>
+        <p>En esta sección, podrá ver su información y editar su imagen de perfil</p>
+
+        <p><a class="btn btn-default" href="~/Personas">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        @*<img src="img/icons/ProfilePic.jpg" class="img-responsive" />*@
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Ver Horario</h2>
+        <p>En esta sección, podrá ver el horario del Gimnasio</p>
+        @*<img src="img/icons/clienteImg.png" class="img-responsive" />*@
+        <p><a class="btn btn-default" href="~/Horarios">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        @*<img src="img/icons/ProfilePic.jpg" class="img-responsive" />*@
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Visualizar pagos</h2>
+        <p>En esta sección, podrá ver su próxima fecha de pago, además del historial de pagos realizados</p>
+        @*<img src="img/icons/schedule.jpg" class="img-responsive" />*@
+        <p><a class="btn btn-default" href="~/Pagos">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        @*<img src="img/icons/ProfilePic.jpg" class="img-responsive" />*@
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Ver Rutinas</h2>
+        <p>En esta sección, puede visualizar sus rutinas y sus respectivos ejercicios</p>
+        @*<img src="img/icons/schedule.jpg" class="img-responsive" />*@
+        <p><a class="btn btn-default" href="~/Rutinas">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        @*<img src="img/icons/ProfilePic.jpg" class="img-responsive" />*@
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Ver Progreso</h2>
+        <p>En esta sección, puede ver su progreso de acuerdo a las medidas tomadas</p>
+        @*<img src="img/icons/schedule.jpg" class="img-responsive" />*@
+        <p><a class="btn btn-default" href="~/Medidas">Ir &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        @*<img src="img/icons/ProfilePic.jpg" class="img-responsive" />*@
+    </div>
+</div>
+

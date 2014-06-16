@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebRole1.Models.EJERCICIO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.STR_NOMBRE_EJERCICIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INT_DURACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INT_REPETICIONES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INT_PESO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INT_DESCANSO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INT_SERIES)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.STR_NOMBRE_EJERCICIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INT_DURACION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INT_REPETICIONES)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INT_PESO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INT_DESCANSO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INT_SERIES)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.INT_ID_EJERCICIO }) |
+            @Html.ActionLink("Details", "Details", new { id=item.INT_ID_EJERCICIO }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.INT_ID_EJERCICIO })
+        </td>
+    </tr>
+}
+
+</table>

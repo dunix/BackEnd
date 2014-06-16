@@ -1,0 +1,100 @@
+﻿@model IEnumerable<WebRole1.Models.PERSONA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.STR_APELLIDO1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STR_APELLIDO2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_FECHA_NACIMIENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STR_PROFESION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMG_FOTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FT_TAMANO_FOTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STR_TELEFONO1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STR_TELEFONO2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STR_DIRECCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STR_EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STR_NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rol)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.STR_APELLIDO1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STR_APELLIDO2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_FECHA_NACIMIENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STR_PROFESION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMG_FOTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FT_TAMANO_FOTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STR_TELEFONO1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STR_TELEFONO2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STR_DIRECCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STR_EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STR_NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rol)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.STR_CEDULA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.STR_CEDULA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.STR_CEDULA })
+        </td>
+    </tr>
+}
+
+</table>

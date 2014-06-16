@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bj_gimnasioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADMINISTRADOR">
+    <Key>
+      <PropertyRef Name="INT_ID_ADMINISTRADOR" />
+    </Key>
+    <Property Name="INT_ID_ADMINISTRADOR" Type="Int32" Nullable="false" />
+    <Property Name="INT_CEDULA" Type="Int32" />
+    <Property Name="INT_CANTIDAD_HORAS_SEMANALES" Type="Int32" />
+    <NavigationProperty Name="PERSONA" Relationship="Self.FK_ADMINISTR_ES_PERSONA" FromRole="ADMINISTRADOR" ToRole="PERSONA" />
+    <NavigationProperty Name="HORARIO_GIMNASIO" Relationship="Self.FK_HORARIO_GYM_ADMINISTRADO" FromRole="ADMINISTRADOR" ToRole="HORARIO_GIMNASIO" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="INT_NUMERO_CLIENTE" />
+    </Key>
+    <Property Name="INT_NUMERO_CLIENTE" Type="Int32" Nullable="false" />
+    <Property Name="INT_CEDULA" Type="Int32" />
+    <Property Name="DT_FECHA_INGRESO" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PERSONA" Relationship="Self.FK_CLIENTE_ES_PERSONA" FromRole="CLIENTE" ToRole="PERSONA" />
+    <NavigationProperty Name="MEDIDA_POR_CLIENTE" Relationship="Self.FK_CLIENTES_POR_MEDIDA" FromRole="CLIENTE" ToRole="MEDIDA_POR_CLIENTE" />
+    <NavigationProperty Name="MEMBRESIA_POR_CLIENTE" Relationship="Self.FK_CLIENTES_POR_MEMBRESIA" FromRole="CLIENTE" ToRole="MEMBRESIA_POR_CLIENTE" />
+    <NavigationProperty Name="RUTINA" Relationship="Self.FK_RUTINAS_POR_CLIENTE" FromRole="CLIENTE" ToRole="RUTINA" />
+    <NavigationProperty Name="VISITA" Relationship="Self.FK_VISITAS_POR_CLIENTE" FromRole="CLIENTE" ToRole="VISITA" />
+  </EntityType>
+  <EntityType Name="EJERCICIO">
+    <Key>
+      <PropertyRef Name="INT_ID_EJERCICIO" />
+    </Key>
+    <Property Name="INT_ID_EJERCICIO" Type="Int32" Nullable="false" />
+    <Property Name="STR_NOMBRE_EJERCICIO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="INT_DURACION" Type="Int32" />
+    <Property Name="INT_REPETICIONES" Type="Int32" />
+    <Property Name="INT_PESO" Type="Double" />
+    <Property Name="INT_DESCANSO" Type="Int32" />
+    <Property Name="INT_SERIES" Type="Int32" />
+    <NavigationProperty Name="MAQUINA" Relationship="Self.FK_EJERCICIO_USA_MAQUINA" FromRole="EJERCICIO" ToRole="MAQUINA" />
+    <NavigationProperty Name="RUTINA" Relationship="Self.EJERCICIO_POR_RUTINA" FromRole="EJERCICIO" ToRole="RUTINA" />
+  </EntityType>
+  <EntityType Name="HORARIO_GIMNASIO">
+    <Key>
+      <PropertyRef Name="ID_HORARIO" />
+    </Key>
+    <Property Name="ID_HORARIO" Type="Int32" Nullable="false" />
+    <Property Name="INT_ID_ADMINISTRADOR" Type="Int32" />
+    <Property Name="DIA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ACTIVIDAD" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FT_HORA" Type="Double" />
+    <Property Name="HORA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ADMINISTRADOR" Relationship="Self.FK_HORARIO_GYM_ADMINISTRADO" FromRole="HORARIO_GIMNASIO" ToRole="ADMINISTRADOR" />
+  </EntityType>
+  <EntityType Name="INSTRUCTOR">
+    <Key>
+      <PropertyRef Name="INT_ID_INSTRUCTOR" />
+    </Key>
+    <Property Name="INT_ID_INSTRUCTOR" Type="Int32" Nullable="false" />
+    <Property Name="INT_CEDULA" Type="Int32" />
+    <Property Name="INT_CANTIDAD_HORAS_SEMANALES" Type="Int32" />
+    <NavigationProperty Name="PERSONA" Relationship="Self.FK_INSTRUCTOR_ES_PERSONA" FromRole="INSTRUCTOR" ToRole="PERSONA" />
+    <NavigationProperty Name="RUTINA" Relationship="Self.INSTRUCTOR_RUTINA" FromRole="INSTRUCTOR" ToRole="RUTINA" />
+  </EntityType>
+  <EntityType Name="MAQUINA">
+    <Key>
+      <PropertyRef Name="INT_ID_MAQUINA" />
+    </Key>
+    <Property Name="INT_ID_MAQUINA" Type="Int32" Nullable="false" />
+    <Property Name="INT_ID_EJERCICIO" Type="Int32" />
+    <Property Name="STR_NOMBRE_MAQUINA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="INT_NUMERO_MAQUINA" Type="Int32" />
+    <NavigationProperty Name="EJERCICIO" Relationship="Self.FK_EJERCICIO_USA_MAQUINA" FromRole="MAQUINA" ToRole="EJERCICIO" />
+  </EntityType>
+  <EntityType Name="MEBRESIA">
+    <Key>
+      <PropertyRef Name="INT_IDMEMBRESIA" />
+    </Key>
+    <Property Name="INT_IDMEMBRESIA" Type="Int32" Nullable="false" />
+    <Property Name="STR_NOMBRE_MEMBRESIA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DB_PRECIO" Type="Double" />
+    <Property Name="INT_PERIODO" Type="Int32" />
+    <NavigationProperty Name="MEMBRESIA_POR_CLIENTE" Relationship="Self.FK_MEMBRESIAS_POR_CLIENTE" FromRole="MEBRESIA" ToRole="MEMBRESIA_POR_CLIENTE" />
+  </EntityType>
+  <EntityType Name="MEDIDA">
+    <Key>
+      <PropertyRef Name="INT_ID_MEDIDA" />
+    </Key>
+    <Property Name="INT_ID_MEDIDA" Type="Int32" Nullable="false" />
+    <Property Name="DT_FECHA_MEDIDA" Type="DateTime" Precision="3" />
+    <Property Name="DB_ALTURA" Type="Double" />
+    <Property Name="DB_IMC" Type="Double" />
+    <Property Name="DB_BICDER" Type="Double" />
+    <Property Name="DB_BICIZQ" Type="Double" />
+    <Property Name="DB_CINTURA" Type="Double" />
+    <Property Name="INT_EDAD" Type="Double" />
+    <Property Name="DB_ESPALDA" Type="Double" />
+    <Property Name="DB_MUSLO_DER" Type="Double" />
+    <Property Name="DB_MUSLO_IZQ" Type="Double" />
+    <Property Name="DB_PECHO" Type="Double" />
+    <Property Name="DB_PESO" Type="Double" />
+    <Property Name="DB_PORCENTAJE_GRASA" Type="Double" />
+    <Property Name="DB_CADERA" Type="Double" />
+    <NavigationProperty Name="MEDIDA_POR_CLIENTE" Relationship="Self.FK_MEDIDAS_POR_CLIENTE" FromRole="MEDIDA" ToRole="MEDIDA_POR_CLIENTE" />
+  </EntityType>
+  <EntityType Name="MEDIDA_POR_CLIENTE">
+    <Key>
+      <PropertyRef Name="INT_NUMERO_CLIENTE" />
+      <PropertyRef Name="INT_ID_MEDIDA" />
+    </Key>
+    <Property Name="INT_NUMERO_CLIENTE" Type="Int32" Nullable="false" />
+    <Property Name="INT_ID_MEDIDA" Type="Int32" Nullable="false" />
+    <Property Name="DT_FECHA_MEDIDA" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK_CLIENTES_POR_MEDIDA" FromRole="MEDIDA_POR_CLIENTE" ToRole="CLIENTE" />
+    <NavigationProperty Name="MEDIDA" Relationship="Self.FK_MEDIDAS_POR_CLIENTE" FromRole="MEDIDA_POR_CLIENTE" ToRole="MEDIDA" />
+  </EntityType>
+  <EntityType Name="MEMBRESIA_POR_CLIENTE">
+    <Key>
+      <PropertyRef Name="INT_NUMERO_CLIENTE" />
+      <PropertyRef Name="INT_IDMEMBRESIA" />
+    </Key>
+    <Property Name="INT_NUMERO_CLIENTE" Type="Int32" Nullable="false" />
+    <Property Name="INT_IDMEMBRESIA" Type="Int32" Nullable="false" />
+    <Property Name="DB_PRECIO" Type="Double" />
+    <Property Name="DB_MONTO_PENDIENTE" Type="Double" />
+    <Property Name="INT_NUM_RECIBO" Type="Int32" />
+    <Property Name="INT_FECHA_PAGO" Type="DateTime" Precision="3" />
+    <Property Name="STR_OBSERVACIONES" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK_CLIENTES_POR_MEMBRESIA" FromRole="MEMBRESIA_POR_CLIENTE" ToRole="CLIENTE" />
+    <NavigationProperty Name="MEBRESIA" Relationship="Self.FK_MEMBRESIAS_POR_CLIENTE" FromRole="MEMBRESIA_POR_CLIENTE" ToRole="MEBRESIA" />
+  </EntityType>
+  <EntityType Name="PERSONA">
+    <Key>
+      <PropertyRef Name="INT_CEDULA" />
+    </Key>
+    <Property Name="INT_CEDULA" Type="Int32" Nullable="false" />
+    <Property Name="STR_APELLIDO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STR_APELLIDO2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DT_FECHA_NACIMIENTO" Type="DateTime" Precision="3" />
+    <Property Name="STR_PROFESION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IMG_FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="FT_TAMANO_FOTO" Type="Double" />
+    <Property Name="STR_TELEFONO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STR_TELEFONO2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STR_DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="STR_EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ADMINISTRADOR" Relationship="Self.FK_ADMINISTR_ES_PERSONA" FromRole="PERSONA" ToRole="ADMINISTRADOR" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK_CLIENTE_ES_PERSONA" FromRole="PERSONA" ToRole="CLIENTE" />
+    <NavigationProperty Name="INSTRUCTOR" Relationship="Self.FK_INSTRUCTOR_ES_PERSONA" FromRole="PERSONA" ToRole="INSTRUCTOR" />
+    <NavigationProperty Name="users" Relationship="Self.Fk_persona_es_usuario" FromRole="PERSONA" ToRole="users" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="users" Relationship="Self.userroles" FromRole="roles" ToRole="users" />
+  </EntityType>
+  <EntityType Name="RUTINA">
+    <Key>
+      <PropertyRef Name="INT_ID_RUTINA" />
+    </Key>
+    <Property Name="INT_ID_RUTINA" Type="Int32" Nullable="false" />
+    <Property Name="INT_NUMERO_CLIENTE" Type="Int32" />
+    <Property Name="STR_NOMBRE_RUTINA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="INT_DURACION_TOTAL" Type="Double" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK_RUTINAS_POR_CLIENTE" FromRole="RUTINA" ToRole="CLIENTE" />
+    <NavigationProperty Name="EJERCICIO" Relationship="Self.EJERCICIO_POR_RUTINA" FromRole="RUTINA" ToRole="EJERCICIO" />
+    <NavigationProperty Name="INSTRUCTOR" Relationship="Self.INSTRUCTOR_RUTINA" FromRole="RUTINA" ToRole="INSTRUCTOR" />
+  </EntityType>
+  <EntityType Name="userclaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClaimValue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="users" Relationship="Self.FK__userclaim__UserI__30F848ED" FromRole="userclaims" ToRole="users" />
+  </EntityType>
+  <EntityType Name="userlogins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LoginProvider" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="users" Relationship="Self.FK__userlogin__UserI__49C3F6B7" FromRole="userlogins" ToRole="users" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="INT_CEDULA" Type="Int32" />
+    <NavigationProperty Name="PERSONA" Relationship="Self.Fk_persona_es_usuario" FromRole="users" ToRole="PERSONA" />
+    <NavigationProperty Name="userclaims" Relationship="Self.FK__userclaim__UserI__30F848ED" FromRole="users" ToRole="userclaims" />
+    <NavigationProperty Name="userlogins" Relationship="Self.FK__userlogin__UserI__49C3F6B7" FromRole="users" ToRole="userlogins" />
+    <NavigationProperty Name="roles" Relationship="Self.userroles" FromRole="users" ToRole="roles" />
+  </EntityType>
+  <EntityType Name="VISITA">
+    <Key>
+      <PropertyRef Name="INT_IDVISITAS" />
+    </Key>
+    <Property Name="INT_IDVISITAS" Type="Int32" Nullable="false" />
+    <Property Name="INT_NUMERO_CLIENTE" Type="Int32" />
+    <Property Name="DT_FECHA_VISITA" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK_VISITAS_POR_CLIENTE" FromRole="VISITA" ToRole="CLIENTE" />
+  </EntityType>
+  <Association Name="FK_ADMINISTR_ES_PERSONA">
+    <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+    <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="INT_CEDULA" />
+      </Principal>
+      <Dependent Role="ADMINISTRADOR">
+        <PropertyRef Name="INT_CEDULA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HORARIO_GYM_ADMINISTRADO">
+    <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="0..1" />
+    <End Role="HORARIO_GIMNASIO" Type="Self.HORARIO_GIMNASIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ADMINISTRADOR">
+        <PropertyRef Name="INT_ID_ADMINISTRADOR" />
+      </Principal>
+      <Dependent Role="HORARIO_GIMNASIO">
+        <PropertyRef Name="INT_ID_ADMINISTRADOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTE_ES_PERSONA">
+    <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="INT_CEDULA" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="INT_CEDULA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTES_POR_MEDIDA">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="MEDIDA_POR_CLIENTE" Type="Self.MEDIDA_POR_CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="INT_NUMERO_CLIENTE" />
+      </Principal>
+      <Dependent Role="MEDIDA_POR_CLIENTE">
+        <PropertyRef Name="INT_NUMERO_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTES_POR_MEMBRESIA">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="MEMBRESIA_POR_CLIENTE" Type="Self.MEMBRESIA_POR_CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="INT_NUMERO_CLIENTE" />
+      </Principal>
+      <Dependent Role="MEMBRESIA_POR_CLIENTE">
+        <PropertyRef Name="INT_NUMERO_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RUTINAS_POR_CLIENTE">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+    <End Role="RUTINA" Type="Self.RUTINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="INT_NUMERO_CLIENTE" />
+      </Principal>
+      <Dependent Role="RUTINA">
+        <PropertyRef Name="INT_NUMERO_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VISITAS_POR_CLIENTE">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+    <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="INT_NUMERO_CLIENTE" />
+      </Principal>
+      <Dependent Role="VISITA">
+        <PropertyRef Name="INT_NUMERO_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EJERCICIO_USA_MAQUINA">
+    <End Role="EJERCICIO" Type="Self.EJERCICIO" Multiplicity="0..1" />
+    <End Role="MAQUINA" Type="Self.MAQUINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EJERCICIO">
+        <PropertyRef Name="INT_ID_EJERCICIO" />
+      </Principal>
+      <Dependent Role="MAQUINA">
+        <PropertyRef Name="INT_ID_EJERCICIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSTRUCTOR_ES_PERSONA">
+    <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+    <End Role="INSTRUCTOR" Type="Self.INSTRUCTOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="INT_CEDULA" />
+      </Principal>
+      <Dependent Role="INSTRUCTOR">
+        <PropertyRef Name="INT_CEDULA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MEMBRESIAS_POR_CLIENTE">
+    <End Role="MEBRESIA" Type="Self.MEBRESIA" Multiplicity="1" />
+    <End Role="MEMBRESIA_POR_CLIENTE" Type="Self.MEMBRESIA_POR_CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEBRESIA">
+        <PropertyRef Name="INT_IDMEMBRESIA" />
+      </Principal>
+      <Dependent Role="MEMBRESIA_POR_CLIENTE">
+        <PropertyRef Name="INT_IDMEMBRESIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MEDIDAS_POR_CLIENTE">
+    <End Role="MEDIDA" Type="Self.MEDIDA" Multiplicity="1" />
+    <End Role="MEDIDA_POR_CLIENTE" Type="Self.MEDIDA_POR_CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDIDA">
+        <PropertyRef Name="INT_ID_MEDIDA" />
+      </Principal>
+      <Dependent Role="MEDIDA_POR_CLIENTE">
+        <PropertyRef Name="INT_ID_MEDIDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_persona_es_usuario">
+    <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="INT_CEDULA" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="INT_CEDULA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userclaim__UserI__30F848ED">
+    <End Role="users" Type="Self.users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="userclaims" Type="Self.userclaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="userclaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userlogin__UserI__49C3F6B7">
+    <End Role="users" Type="Self.users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="userlogins" Type="Self.userlogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="userlogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EJERCICIO_POR_RUTINA">
+    <End Role="EJERCICIO" Type="Self.EJERCICIO" Multiplicity="*" />
+    <End Role="RUTINA" Type="Self.RUTINA" Multiplicity="*" />
+  </Association>
+  <Association Name="INSTRUCTOR_RUTINA">
+    <End Role="INSTRUCTOR" Type="Self.INSTRUCTOR" Multiplicity="*" />
+    <End Role="RUTINA" Type="Self.RUTINA" Multiplicity="*" />
+  </Association>
+  <Association Name="userroles">
+    <End Role="roles" Type="Self.roles" Multiplicity="*" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="bj_gimnasioEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" />
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+    <EntitySet Name="EJERCICIO" EntityType="Self.EJERCICIO" />
+    <EntitySet Name="HORARIO_GIMNASIO" EntityType="Self.HORARIO_GIMNASIO" />
+    <EntitySet Name="INSTRUCTOR" EntityType="Self.INSTRUCTOR" />
+    <EntitySet Name="MAQUINA" EntityType="Self.MAQUINA" />
+    <EntitySet Name="MEBRESIA" EntityType="Self.MEBRESIA" />
+    <EntitySet Name="MEDIDA" EntityType="Self.MEDIDA" />
+    <EntitySet Name="MEDIDA_POR_CLIENTE" EntityType="Self.MEDIDA_POR_CLIENTE" />
+    <EntitySet Name="MEMBRESIA_POR_CLIENTE" EntityType="Self.MEMBRESIA_POR_CLIENTE" />
+    <EntitySet Name="PERSONA" EntityType="Self.PERSONA" />
+    <EntitySet Name="roles" EntityType="Self.roles" />
+    <EntitySet Name="RUTINA" EntityType="Self.RUTINA" />
+    <EntitySet Name="userclaims" EntityType="Self.userclaims" />
+    <EntitySet Name="userlogins" EntityType="Self.userlogins" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <EntitySet Name="VISITA" EntityType="Self.VISITA" />
+    <AssociationSet Name="FK_ADMINISTR_ES_PERSONA" Association="Self.FK_ADMINISTR_ES_PERSONA">
+      <End Role="PERSONA" EntitySet="PERSONA" />
+      <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HORARIO_GYM_ADMINISTRADO" Association="Self.FK_HORARIO_GYM_ADMINISTRADO">
+      <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
+      <End Role="HORARIO_GIMNASIO" EntitySet="HORARIO_GIMNASIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTE_ES_PERSONA" Association="Self.FK_CLIENTE_ES_PERSONA">
+      <End Role="PERSONA" EntitySet="PERSONA" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTES_POR_MEDIDA" Association="Self.FK_CLIENTES_POR_MEDIDA">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="MEDIDA_POR_CLIENTE" EntitySet="MEDIDA_POR_CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTES_POR_MEMBRESIA" Association="Self.FK_CLIENTES_POR_MEMBRESIA">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="MEMBRESIA_POR_CLIENTE" EntitySet="MEMBRESIA_POR_CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RUTINAS_POR_CLIENTE" Association="Self.FK_RUTINAS_POR_CLIENTE">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="RUTINA" EntitySet="RUTINA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VISITAS_POR_CLIENTE" Association="Self.FK_VISITAS_POR_CLIENTE">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="VISITA" EntitySet="VISITA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EJERCICIO_USA_MAQUINA" Association="Self.FK_EJERCICIO_USA_MAQUINA">
+      <End Role="EJERCICIO" EntitySet="EJERCICIO" />
+      <End Role="MAQUINA" EntitySet="MAQUINA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSTRUCTOR_ES_PERSONA" Association="Self.FK_INSTRUCTOR_ES_PERSONA">
+      <End Role="PERSONA" EntitySet="PERSONA" />
+      <End Role="INSTRUCTOR" EntitySet="INSTRUCTOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MEMBRESIAS_POR_CLIENTE" Association="Self.FK_MEMBRESIAS_POR_CLIENTE">
+      <End Role="MEBRESIA" EntitySet="MEBRESIA" />
+      <End Role="MEMBRESIA_POR_CLIENTE" EntitySet="MEMBRESIA_POR_CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MEDIDAS_POR_CLIENTE" Association="Self.FK_MEDIDAS_POR_CLIENTE">
+      <End Role="MEDIDA" EntitySet="MEDIDA" />
+      <End Role="MEDIDA_POR_CLIENTE" EntitySet="MEDIDA_POR_CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_persona_es_usuario" Association="Self.Fk_persona_es_usuario">
+      <End Role="PERSONA" EntitySet="PERSONA" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userclaim__UserI__30F848ED" Association="Self.FK__userclaim__UserI__30F848ED">
+      <End Role="users" EntitySet="users" />
+      <End Role="userclaims" EntitySet="userclaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userlogin__UserI__49C3F6B7" Association="Self.FK__userlogin__UserI__49C3F6B7">
+      <End Role="users" EntitySet="users" />
+      <End Role="userlogins" EntitySet="userlogins" />
+    </AssociationSet>
+    <AssociationSet Name="EJERCICIO_POR_RUTINA" Association="Self.EJERCICIO_POR_RUTINA">
+      <End Role="EJERCICIO" EntitySet="EJERCICIO" />
+      <End Role="RUTINA" EntitySet="RUTINA" />
+    </AssociationSet>
+    <AssociationSet Name="INSTRUCTOR_RUTINA" Association="Self.INSTRUCTOR_RUTINA">
+      <End Role="INSTRUCTOR" EntitySet="INSTRUCTOR" />
+      <End Role="RUTINA" EntitySet="RUTINA" />
+    </AssociationSet>
+    <AssociationSet Name="userroles" Association="Self.userroles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <FunctionImport Name="usp_get_horario" ReturnType="Collection(String)">
+      <Parameter Name="VALOR" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

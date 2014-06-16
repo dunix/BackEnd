@@ -1,0 +1,2 @@
+C:\Users\Yader\Documents\Visual Studio 2013\Projects\WindowsAzure1\WindowsAzure1\bin\Debug\ServiceConfiguration.cscfg
+C:\Users\Yader\Documents\Visual Studio 2013\Projects\WindowsAzure1\WindowsAzure1\bin\Debug\ServiceDefinition.csdef

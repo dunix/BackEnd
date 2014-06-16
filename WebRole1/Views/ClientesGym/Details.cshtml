@@ -1,0 +1,35 @@
+﻿@model WebRole1.Models.CLIENTE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CLIENTE</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DT_FECHA_INGRESO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DT_FECHA_INGRESO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PERSONA.STR_APELLIDO1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PERSONA.STR_APELLIDO1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.INT_NUMERO_CLIENTE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

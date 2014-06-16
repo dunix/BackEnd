@@ -1,0 +1,112 @@
+﻿@model IEnumerable<WebRole1.Models.MEDIDA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DT_FECHA_MEDIDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_ALTURA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_IMC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_BICDER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_BICIZQ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_CINTURA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INT_EDAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_ESPALDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_MUSLO_DER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_MUSLO_IZQ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_PECHO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_PESO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_PORCENTAJE_GRASA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB_CADERA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DT_FECHA_MEDIDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_ALTURA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_IMC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_BICDER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_BICIZQ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_CINTURA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INT_EDAD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_ESPALDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_MUSLO_DER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_MUSLO_IZQ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_PECHO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_PESO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_PORCENTAJE_GRASA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DB_CADERA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.INT_ID_MEDIDA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.INT_ID_MEDIDA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.INT_ID_MEDIDA })
+        </td>
+    </tr>
+}
+
+</table>

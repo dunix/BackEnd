@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bj_gimnasioModelStoreContainer" CdmEntityContainer="bj_gimnasioEntities1">
+    <EntitySetMapping Name="ADMINISTRADOR">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.ADMINISTRADOR">
+        <MappingFragment StoreEntitySet="ADMINISTRADOR">
+          <ScalarProperty Name="INT_ID_ADMINISTRADOR" ColumnName="INT_ID_ADMINISTRADOR" />
+          <ScalarProperty Name="INT_CEDULA" ColumnName="INT_CEDULA" />
+          <ScalarProperty Name="INT_CANTIDAD_HORAS_SEMANALES" ColumnName="INT_CANTIDAD_HORAS_SEMANALES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENTE">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.CLIENTE">
+        <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="INT_NUMERO_CLIENTE" ColumnName="INT_NUMERO_CLIENTE" />
+          <ScalarProperty Name="INT_CEDULA" ColumnName="INT_CEDULA" />
+          <ScalarProperty Name="DT_FECHA_INGRESO" ColumnName="DT_FECHA_INGRESO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EJERCICIO">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.EJERCICIO">
+        <MappingFragment StoreEntitySet="EJERCICIO">
+          <ScalarProperty Name="INT_ID_EJERCICIO" ColumnName="INT_ID_EJERCICIO" />
+          <ScalarProperty Name="STR_NOMBRE_EJERCICIO" ColumnName="STR_NOMBRE_EJERCICIO" />
+          <ScalarProperty Name="INT_DURACION" ColumnName="INT_DURACION" />
+          <ScalarProperty Name="INT_REPETICIONES" ColumnName="INT_REPETICIONES" />
+          <ScalarProperty Name="INT_PESO" ColumnName="INT_PESO" />
+          <ScalarProperty Name="INT_DESCANSO" ColumnName="INT_DESCANSO" />
+          <ScalarProperty Name="INT_SERIES" ColumnName="INT_SERIES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HORARIO_GIMNASIO">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.HORARIO_GIMNASIO">
+        <MappingFragment StoreEntitySet="HORARIO_GIMNASIO">
+          <ScalarProperty Name="ID_HORARIO" ColumnName="ID_HORARIO" />
+          <ScalarProperty Name="INT_ID_ADMINISTRADOR" ColumnName="INT_ID_ADMINISTRADOR" />
+          <ScalarProperty Name="DIA" ColumnName="DIA" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="FT_HORA" ColumnName="FT_HORA" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INSTRUCTOR">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.INSTRUCTOR">
+        <MappingFragment StoreEntitySet="INSTRUCTOR">
+          <ScalarProperty Name="INT_ID_INSTRUCTOR" ColumnName="INT_ID_INSTRUCTOR" />
+          <ScalarProperty Name="INT_CEDULA" ColumnName="INT_CEDULA" />
+          <ScalarProperty Name="INT_CANTIDAD_HORAS_SEMANALES" ColumnName="INT_CANTIDAD_HORAS_SEMANALES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAQUINA">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.MAQUINA">
+        <MappingFragment StoreEntitySet="MAQUINA">
+          <ScalarProperty Name="INT_ID_MAQUINA" ColumnName="INT_ID_MAQUINA" />
+          <ScalarProperty Name="INT_ID_EJERCICIO" ColumnName="INT_ID_EJERCICIO" />
+          <ScalarProperty Name="STR_NOMBRE_MAQUINA" ColumnName="STR_NOMBRE_MAQUINA" />
+          <ScalarProperty Name="INT_NUMERO_MAQUINA" ColumnName="INT_NUMERO_MAQUINA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEBRESIA">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.MEBRESIA">
+        <MappingFragment StoreEntitySet="MEBRESIA">
+          <ScalarProperty Name="INT_IDMEMBRESIA" ColumnName="INT_IDMEMBRESIA" />
+          <ScalarProperty Name="STR_NOMBRE_MEMBRESIA" ColumnName="STR_NOMBRE_MEMBRESIA" />
+          <ScalarProperty Name="DB_PRECIO" ColumnName="DB_PRECIO" />
+          <ScalarProperty Name="INT_PERIODO" ColumnName="INT_PERIODO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEDIDA">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.MEDIDA">
+        <MappingFragment StoreEntitySet="MEDIDA">
+          <ScalarProperty Name="INT_ID_MEDIDA" ColumnName="INT_ID_MEDIDA" />
+          <ScalarProperty Name="DT_FECHA_MEDIDA" ColumnName="DT_FECHA_MEDIDA" />
+          <ScalarProperty Name="DB_ALTURA" ColumnName="DB_ALTURA" />
+          <ScalarProperty Name="DB_IMC" ColumnName="DB_IMC" />
+          <ScalarProperty Name="DB_BICDER" ColumnName="DB_BICDER" />
+          <ScalarProperty Name="DB_BICIZQ" ColumnName="DB_BICIZQ" />
+          <ScalarProperty Name="DB_CINTURA" ColumnName="DB_CINTURA" />
+          <ScalarProperty Name="INT_EDAD" ColumnName="INT_EDAD" />
+          <ScalarProperty Name="DB_ESPALDA" ColumnName="DB_ESPALDA" />
+          <ScalarProperty Name="DB_MUSLO_DER" ColumnName="DB_MUSLO_DER" />
+          <ScalarProperty Name="DB_MUSLO_IZQ" ColumnName="DB_MUSLO_IZQ" />
+          <ScalarProperty Name="DB_PECHO" ColumnName="DB_PECHO" />
+          <ScalarProperty Name="DB_PESO" ColumnName="DB_PESO" />
+          <ScalarProperty Name="DB_PORCENTAJE_GRASA" ColumnName="DB_PORCENTAJE_GRASA" />
+          <ScalarProperty Name="DB_CADERA" ColumnName="DB_CADERA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEDIDA_POR_CLIENTE">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.MEDIDA_POR_CLIENTE">
+        <MappingFragment StoreEntitySet="MEDIDA_POR_CLIENTE">
+          <ScalarProperty Name="INT_NUMERO_CLIENTE" ColumnName="INT_NUMERO_CLIENTE" />
+          <ScalarProperty Name="INT_ID_MEDIDA" ColumnName="INT_ID_MEDIDA" />
+          <ScalarProperty Name="DT_FECHA_MEDIDA" ColumnName="DT_FECHA_MEDIDA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEMBRESIA_POR_CLIENTE">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.MEMBRESIA_POR_CLIENTE">
+        <MappingFragment StoreEntitySet="MEMBRESIA_POR_CLIENTE">
+          <ScalarProperty Name="INT_NUMERO_CLIENTE" ColumnName="INT_NUMERO_CLIENTE" />
+          <ScalarProperty Name="INT_IDMEMBRESIA" ColumnName="INT_IDMEMBRESIA" />
+          <ScalarProperty Name="DB_PRECIO" ColumnName="DB_PRECIO" />
+          <ScalarProperty Name="DB_MONTO_PENDIENTE" ColumnName="DB_MONTO_PENDIENTE" />
+          <ScalarProperty Name="INT_NUM_RECIBO" ColumnName="INT_NUM_RECIBO" />
+          <ScalarProperty Name="INT_FECHA_PAGO" ColumnName="INT_FECHA_PAGO" />
+          <ScalarProperty Name="STR_OBSERVACIONES" ColumnName="STR_OBSERVACIONES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSONA">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.PERSONA">
+        <MappingFragment StoreEntitySet="PERSONA">
+          <ScalarProperty Name="INT_CEDULA" ColumnName="INT_CEDULA" />
+          <ScalarProperty Name="STR_APELLIDO1" ColumnName="STR_APELLIDO1" />
+          <ScalarProperty Name="STR_APELLIDO2" ColumnName="STR_APELLIDO2" />
+          <ScalarProperty Name="DT_FECHA_NACIMIENTO" ColumnName="DT_FECHA_NACIMIENTO" />
+          <ScalarProperty Name="STR_PROFESION" ColumnName="STR_PROFESION" />
+          <ScalarProperty Name="IMG_FOTO" ColumnName="IMG_FOTO" />
+          <ScalarProperty Name="FT_TAMANO_FOTO" ColumnName="FT_TAMANO_FOTO" />
+          <ScalarProperty Name="STR_TELEFONO1" ColumnName="STR_TELEFONO1" />
+          <ScalarProperty Name="STR_TELEFONO2" ColumnName="STR_TELEFONO2" />
+          <ScalarProperty Name="STR_DIRECCION" ColumnName="STR_DIRECCION" />
+          <ScalarProperty Name="STR_EMAIL" ColumnName="STR_EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RUTINA">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.RUTINA">
+        <MappingFragment StoreEntitySet="RUTINA">
+          <ScalarProperty Name="INT_ID_RUTINA" ColumnName="INT_ID_RUTINA" />
+          <ScalarProperty Name="INT_NUMERO_CLIENTE" ColumnName="INT_NUMERO_CLIENTE" />
+          <ScalarProperty Name="STR_NOMBRE_RUTINA" ColumnName="STR_NOMBRE_RUTINA" />
+          <ScalarProperty Name="INT_DURACION_TOTAL" ColumnName="INT_DURACION_TOTAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userclaims">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.userclaims">
+        <MappingFragment StoreEntitySet="userclaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userlogins">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.userlogins">
+        <MappingFragment StoreEntitySet="userlogins">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="INT_CEDULA" ColumnName="INT_CEDULA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VISITA">
+      <EntityTypeMapping TypeName="bj_gimnasioModel.VISITA">
+        <MappingFragment StoreEntitySet="VISITA">
+          <ScalarProperty Name="INT_IDVISITAS" ColumnName="INT_IDVISITAS" />
+          <ScalarProperty Name="INT_NUMERO_CLIENTE" ColumnName="INT_NUMERO_CLIENTE" />
+          <ScalarProperty Name="DT_FECHA_VISITA" ColumnName="DT_FECHA_VISITA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EJERCICIO_POR_RUTINA" TypeName="bj_gimnasioModel.EJERCICIO_POR_RUTINA" StoreEntitySet="EJERCICIO_POR_RUTINA">
+      <EndProperty Name="EJERCICIO">
+        <ScalarProperty Name="INT_ID_EJERCICIO" ColumnName="INT_ID_EJERCICIO" />
+      </EndProperty>
+      <EndProperty Name="RUTINA">
+        <ScalarProperty Name="INT_ID_RUTINA" ColumnName="INT_ID_RUTINA" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="INSTRUCTOR_RUTINA" TypeName="bj_gimnasioModel.INSTRUCTOR_RUTINA" StoreEntitySet="INSTRUCTOR_RUTINA">
+      <EndProperty Name="INSTRUCTOR">
+        <ScalarProperty Name="INT_ID_INSTRUCTOR" ColumnName="INT_ID_INSTRUCTOR" />
+      </EndProperty>
+      <EndProperty Name="RUTINA">
+        <ScalarProperty Name="INT_ID_RUTINA" ColumnName="INT_ID_RUTINA" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="userroles" TypeName="bj_gimnasioModel.userroles" StoreEntitySet="userroles">
+      <EndProperty Name="roles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="users">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="usp_get_horario" FunctionName="bj_gimnasioModel.Store.usp_get_horario" />
+  </EntityContainerMapping>
+</Mapping>

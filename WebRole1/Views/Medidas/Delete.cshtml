@@ -1,0 +1,137 @@
+﻿@model WebRole1.Models.MEDIDA
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MEDIDA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DT_FECHA_MEDIDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DT_FECHA_MEDIDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_ALTURA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_ALTURA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_IMC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_IMC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_BICDER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_BICDER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_BICIZQ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_BICIZQ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_CINTURA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_CINTURA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INT_EDAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INT_EDAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_ESPALDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_ESPALDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_MUSLO_DER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_MUSLO_DER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_MUSLO_IZQ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_MUSLO_IZQ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_PECHO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_PECHO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_PESO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_PESO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_PORCENTAJE_GRASA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_PORCENTAJE_GRASA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB_CADERA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB_CADERA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

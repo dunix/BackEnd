@@ -1,0 +1,115 @@
+﻿@model WebRole1.Models.PERSONA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PERSONA</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STR_APELLIDO1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STR_APELLIDO1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STR_APELLIDO2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STR_APELLIDO2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DT_FECHA_NACIMIENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DT_FECHA_NACIMIENTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STR_PROFESION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STR_PROFESION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMG_FOTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMG_FOTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FT_TAMANO_FOTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FT_TAMANO_FOTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STR_TELEFONO1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STR_TELEFONO1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STR_TELEFONO2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STR_TELEFONO2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STR_DIRECCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STR_DIRECCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STR_EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STR_EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STR_NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STR_NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rol)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.STR_CEDULA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

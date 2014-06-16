@@ -1,0 +1,90 @@
+﻿@model WebRole1.Models.EJERCICIO
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>EJERCICIO</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.INT_ID_EJERCICIO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.INT_ID_EJERCICIO)
+                @Html.ValidationMessageFor(model => model.INT_ID_EJERCICIO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.STR_NOMBRE_EJERCICIO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.STR_NOMBRE_EJERCICIO)
+                @Html.ValidationMessageFor(model => model.STR_NOMBRE_EJERCICIO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.INT_DURACION, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.INT_DURACION)
+                @Html.ValidationMessageFor(model => model.INT_DURACION)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.INT_REPETICIONES, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.INT_REPETICIONES)
+                @Html.ValidationMessageFor(model => model.INT_REPETICIONES)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.INT_PESO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.INT_PESO)
+                @Html.ValidationMessageFor(model => model.INT_PESO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.INT_DESCANSO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.INT_DESCANSO)
+                @Html.ValidationMessageFor(model => model.INT_DESCANSO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.INT_SERIES, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.INT_SERIES)
+                @Html.ValidationMessageFor(model => model.INT_SERIES)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="bjgimnasio" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Yader\\documents\\visual\ studio\ 2013\\Projects\\WindowsAzure1\\WebRole1\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Yader\\documents\\visual\ studio\ 2013\\Projects\\WindowsAzure1\\WebRole1\\obj\\Debug\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=tcp:z54baok0xb.database.windows.net,1433;Initial Catalog=bdseguridad;Integrated Security=False;User ID=usuario@z54baok0xb;Password=Solaris2014;Connect Timeout=30;Encrypt=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Yader\\documents\\visual\ studio\ 2013\\Projects\\WindowsAzure1\\WebRole1\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="HorarioDBContext-Web.config Connection String" description="" value="Data Source=tcp:z54baok0xb.database.wi0ndows.net,1433;Initial Catalog=bjgimnasio;Integrated Security=False;User ID=usuario@z54baok0xb;Password=Solaris2014;Connect Timeout=30;Encrypt=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Yader\\documents\\visual\ studio\ 2013\\Projects\\WindowsAzure1\\WebRole1\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HorarioDBContext']/@connectionString" />
+  </parameter>
+</parameters>

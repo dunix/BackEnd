@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="HorarioDBContext-Web.config Connection String" description="HorarioDBContext Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Server=tcp:z54baok0xb.database.windows.net,1433;Database=bjgimnasio;User ID=usuario@z54baok0xb;Password=Solaris2014;Trusted_Connection=False;Encrypt=True;Connection Timeout=30" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Yader\\documents\\visual\ studio\ 2013\\Projects\\WindowsAzure1\\WebRole1\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HorarioDBContext']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Server=tcp:z54baok0xb.database.windows.net,1433;Database=bdseguridad;User ID=usuario@z54baok0xb;Password=Solaris2014;Trusted_Connection=False;Encrypt=True;Connection Timeout=30" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Yader\\documents\\visual\ studio\ 2013\\Projects\\WindowsAzure1\\WebRole1\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,59 @@
+﻿@model WebRole1.Models.RUTINA
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>RUTINA</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.INT_ID_RUTINA)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.INT_NUMERO_CLIENTE, "INT_NUMERO_CLIENTE", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("INT_NUMERO_CLIENTE", String.Empty)
+                @Html.ValidationMessageFor(model => model.INT_NUMERO_CLIENTE)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.STR_NOMBRE_RUTINA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.STR_NOMBRE_RUTINA)
+                @Html.ValidationMessageFor(model => model.STR_NOMBRE_RUTINA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.INT_DURACION_TOTAL, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.INT_DURACION_TOTAL)
+                @Html.ValidationMessageFor(model => model.INT_DURACION_TOTAL)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

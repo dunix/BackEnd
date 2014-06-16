@@ -1,0 +1,194 @@
+﻿@using WebRole1.Models;
+@model Tuple<MEDIDA,IEnumerable<WebRole1.Models.CLIENTE>>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Asignar Medidas Tomadas a Cliente</h2>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <h4>Clientes</h4>
+            <hr />STR_APELLIDO1
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DT_FECHA_INGRESO)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PERSONA.STR_APELLIDO1)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach(var item in Model.Item2) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(tupleItem => item.DT_FECHA_INGRESO)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(tupleItem => item.PERSONA.STR_APELLIDO1)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.INT_NUMERO_CLIENTE }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.INT_NUMERO_CLIENTE }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.INT_NUMERO_CLIENTE })
+                        </td>
+                    </tr>
+                }
+          </table>
+
+</div>
+        
+    </div>
+    <div class="col-md-5">
+        @using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Medida Tomada</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(tuple => tuple.Item1.INT_ID_MEDIDA, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple => tuple.Item1.INT_ID_MEDIDA)
+                @Html.ValidationMessageFor(tuple => tuple.Item1.INT_ID_MEDIDA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple => tuple.Item1.DT_FECHA_MEDIDA, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple => tuple.Item1.DT_FECHA_MEDIDA)
+                @Html.ValidationMessageFor(tuple => tuple.Item1.DT_FECHA_MEDIDA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple => tuple.Item1.DB_ALTURA, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_ALTURA)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_ALTURA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_IMC, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_IMC)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_IMC)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_BICDER, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_BICDER)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_BICDER)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_BICIZQ, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_BICIZQ)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_BICIZQ)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_CINTURA, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_CINTURA)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_CINTURA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.INT_EDAD, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.INT_EDAD)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.INT_EDAD)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_ESPALDA, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_ESPALDA)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_ESPALDA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_MUSLO_DER, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_MUSLO_DER)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_MUSLO_DER)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_MUSLO_IZQ, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_MUSLO_IZQ)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_MUSLO_IZQ)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_PECHO, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_PECHO)
+                @Html.ValidationMessageFor(tuple=>tuple.Item1.DB_PECHO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_PESO, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_PESO)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_PESO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_PORCENTAJE_GRASA, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_PORCENTAJE_GRASA)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_PORCENTAJE_GRASA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(tuple=> tuple.Item1.DB_CADERA, new { @class = "control-label col-md-5" })
+            <div class="col-md-5">
+                @Html.EditorFor(tuple=> tuple.Item1.DB_CADERA)
+                @Html.ValidationMessageFor(tuple=> tuple.Item1.DB_CADERA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
